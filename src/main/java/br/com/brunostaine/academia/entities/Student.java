@@ -1,5 +1,6 @@
 package br.com.brunostaine.academia.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -24,8 +25,16 @@ public class Student {
     private String name;
     @Column(unique = true)
     private String cpf;
+    private String city;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
+
     @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<PhysicalAssessment> assessments = new ArrayList<>();
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Registration registration;
+
 }

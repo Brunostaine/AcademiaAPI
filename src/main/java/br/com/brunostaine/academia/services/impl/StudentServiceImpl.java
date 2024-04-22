@@ -2,12 +2,20 @@ package br.com.brunostaine.academia.services.impl;
 
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.entities.Student;
+import br.com.brunostaine.academia.repositories.RegistrationRepository;
+import br.com.brunostaine.academia.repositories.StudentRepository;
 import br.com.brunostaine.academia.services.IStudent;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class AlunoServiceImpl implements IStudent {
+@RequiredArgsConstructor
+public class StudentServiceImpl implements IStudent {
+    private final StudentRepository studentRepository;
+    private final RegistrationRepository registrationRepository;
+
     @Override
     public Student create(Student student) {
         return null;
@@ -19,7 +27,7 @@ public class AlunoServiceImpl implements IStudent {
     }
 
     @Override
-    public List<Student> getAll(Student birthDate) {
+    public List<Student> getAll(String birthDate) {
         return null;
     }
 
