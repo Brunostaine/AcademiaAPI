@@ -25,6 +25,15 @@ public class StudentController {
     public List<Student> getAll(@RequestParam(value = "birthDate", required = false) String birthDate){
         return studentService.getAll(birthDate);
     }
+    @GetMapping("/{id}")
+    public Student getById(@PathVariable Long id) {
+        return studentService.getById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Student update(@PathVariable Long id, @RequestBody Student student){
+        return studentService.update(id, student);
+    }
     @GetMapping("/assessments/{id}")
     public List<PhysicalAssessment> getAllPhysicalAssessment(@PathVariable Long id){
         return studentService.getAllPhysicalAssessementId(id);
