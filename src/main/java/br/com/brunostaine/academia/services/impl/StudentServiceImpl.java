@@ -1,6 +1,7 @@
 package br.com.brunostaine.academia.services.impl;
 
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
+import br.com.brunostaine.academia.entities.Registration;
 import br.com.brunostaine.academia.entities.Student;
 import br.com.brunostaine.academia.repositories.RegistrationRepository;
 import br.com.brunostaine.academia.repositories.StudentRepository;
@@ -18,7 +19,14 @@ public class StudentServiceImpl implements IStudent {
 
     @Override
     public Student create(Student student) {
-        return null;
+        Student newStudent = studentRepository.save(student);
+        Registration newRegistration = new Registration();
+
+        newRegistration.setStudent(newStudent);
+        newStudent.setRegistration(newRegistration);
+        registrationRepository.save(newRegistration);
+
+        return newStudent;
     }
 
     @Override
@@ -28,7 +36,7 @@ public class StudentServiceImpl implements IStudent {
 
     @Override
     public List<Student> getAll(String birthDate) {
-        return null;
+        return studentRepository.findAll();
     }
 
     @Override

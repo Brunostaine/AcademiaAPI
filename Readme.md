@@ -24,9 +24,9 @@ Caso você utilize outro sistema operacional, a configuração inicial do projet
 - Utilize ferramentas como postman ou insominia para testar os endponts
 
 ## :large_blue_circle: Implementações futuras
-- [ ] Configurações iniciais
-- [ ] Criação das entidades
-- [ ] Criação da logica de sistemas
+- [x] Configurações iniciais
+- [x] Criação das entidades
+- [x] Criação da logica de sistemas
 - [ ] Validações
 - [ ] Exceptions
 - [ ] Testes unitários

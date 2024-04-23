@@ -21,7 +21,7 @@ public class RegistrationServiceImpl implements IRegistration {
     }
 
     @Override
-    public Registration getById(Long id) {
+    public Registration getById(Long id)  {
         return null;
     }
 
