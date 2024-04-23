@@ -10,6 +10,5 @@ public interface IStudent {
     Student getById(Long id);
     List<Student> getAll(String birthDate);
     Student update(Long id, Student student);
-    void delete(Long id);
     List<PhysicalAssessment> getAllPhysicalAssessementId(Long id);
 }

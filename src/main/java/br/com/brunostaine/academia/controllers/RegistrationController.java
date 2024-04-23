@@ -19,4 +19,9 @@ public class RegistrationController {
     public List<Registration> getAll(@RequestParam(value = "city", required = false) String city){
         return registrationService.getAll(city);
     }
+
+    @GetMapping("/{id}")
+    public Registration getById(@PathVariable Long id){
+        return registrationService.getById(id);
+    }
 }

@@ -2,12 +2,10 @@ package br.com.brunostaine.academia.services;
 
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface IPhysicalAssessment {
     PhysicalAssessment create(PhysicalAssessment physicalAssessment);
-    PhysicalAssessment getById(Long id);
-    List<PhysicalAssessment> getAll();
-    PhysicalAssessment update(Long id, PhysicalAssessment physicalAssessment);
+    Optional<PhysicalAssessment> getById(Long id);
     void delete(Long id);
 }

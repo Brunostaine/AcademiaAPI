@@ -5,6 +5,7 @@ import br.com.brunostaine.academia.entities.Registration;
 import br.com.brunostaine.academia.entities.Student;
 import br.com.brunostaine.academia.exceptions.CpfUniqueViolationException;
 import br.com.brunostaine.academia.exceptions.EntityNotFoundException;
+import br.com.brunostaine.academia.repositories.PhysicalAssessmentRepository;
 import br.com.brunostaine.academia.repositories.RegistrationRepository;
 import br.com.brunostaine.academia.repositories.StudentRepository;
 import br.com.brunostaine.academia.services.IStudent;
@@ -19,6 +20,7 @@ import java.util.List;
 public class StudentServiceImpl implements IStudent {
     private final StudentRepository studentRepository;
     private final RegistrationRepository registrationRepository;
+
 
     @Override
     public Student create(Student student) {
@@ -62,11 +64,6 @@ public class StudentServiceImpl implements IStudent {
             throw new EntityNotFoundException(
                     String.format("We did not find the student in the database."));
         }
-    }
-
-    @Override
-    public void delete(Long id) {
-
     }
 
     @Override
