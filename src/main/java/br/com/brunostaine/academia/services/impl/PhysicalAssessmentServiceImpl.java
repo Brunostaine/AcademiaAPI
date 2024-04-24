@@ -1,6 +1,7 @@
 package br.com.brunostaine.academia.services.impl;
 
 
+import br.com.brunostaine.academia.entities.DTOs.PhysicalAssessmentRequestDTO;
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.entities.Student;
 import br.com.brunostaine.academia.exceptions.EntityNotFoundException;
@@ -21,20 +22,21 @@ public class PhysicalAssessmentServiceImpl implements IPhysicalAssessment {
     private final StudentRepository studentRepository;
 
     @Override
-    public PhysicalAssessment create(PhysicalAssessment physicalAssessment) {
+    public PhysicalAssessment create(PhysicalAssessmentRequestDTO assessment) {
         try{
             PhysicalAssessment newAssessment = new PhysicalAssessment();
-            Student student = studentRepository.findById(physicalAssessment.getId()).get();
+            Student student = studentRepository.findById(assessment.getStudentId()).get();
 
             newAssessment.setStudent(student); // TODO Criar um DTO de avaliação fisica
-            newAssessment.setWeight(physicalAssessment.getWeight());
-            newAssessment.setHeight(physicalAssessment.getHeight());
+            newAssessment.setWeight(assessment.getWeight());
+            newAssessment.setHeight(assessment.getHeight());
             return physicalAssessmentRepository.save(newAssessment);
         }
         catch (RuntimeException ex){
             throw new EntityNotFoundException("Not found! " + ex);
         }
     }
+
 
     @Override
     public Optional<PhysicalAssessment> getById(Long id) {
