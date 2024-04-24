@@ -6,6 +6,15 @@
 
 ## :wrench: Funcionalidades
 - Matricular aluno
+- Buscar aluno por Id
+- Listar todos os alunos
+- Atualizar dados do aluno
+- Listar avaliações fisicas do aluno
+- Buscar aluno por matricula
+- Listar todos as matriculas
+- Criar avaliação fisica de aluno
+- Buscar avaliação fisica por id
+- Deletar avaliação fisica
 
 ## tecnologias utilizadas
 
