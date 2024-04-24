@@ -36,5 +36,4 @@ public class Student {
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Registration registration;
-
 }
