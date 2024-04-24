@@ -27,7 +27,7 @@ public class PhysicalAssessmentServiceImpl implements IPhysicalAssessment {
             PhysicalAssessment newAssessment = new PhysicalAssessment();
             Student student = studentRepository.findById(assessment.getStudentId()).get();
 
-            newAssessment.setStudent(student); // TODO Criar um DTO de avaliação fisica
+            newAssessment.setStudent(student);
             newAssessment.setWeight(assessment.getWeight());
             newAssessment.setHeight(assessment.getHeight());
             return physicalAssessmentRepository.save(newAssessment);

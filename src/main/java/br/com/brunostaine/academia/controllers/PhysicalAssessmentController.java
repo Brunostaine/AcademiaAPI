@@ -4,6 +4,7 @@ import br.com.brunostaine.academia.entities.DTOs.PhysicalAssessmentRequestDTO;
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.services.impl.PhysicalAssessmentServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -25,8 +26,8 @@ public class PhysicalAssessmentController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
         physicalAssessmentService.delete(id);
+        return ResponseEntity.noContent().build();
     }
-
 }

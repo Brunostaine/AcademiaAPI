@@ -17,7 +17,7 @@ public class PhysicalAssessment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
     @JsonFormat(pattern = "dd/MM/yyyy")
