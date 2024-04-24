@@ -36,7 +36,7 @@ Caso você utilize outro sistema operacional, a configuração inicial do projet
 - [x] Configurações iniciais
 - [x] Criação das entidades
 - [x] Criação da logica de sistemas
-- [ ] Validações
+- [x] Validações
 - [ ] Exceptions
 - [ ] Testes unitários
 - [ ] Documentação Swagger

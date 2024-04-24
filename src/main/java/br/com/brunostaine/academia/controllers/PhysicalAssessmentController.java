@@ -3,6 +3,7 @@ package br.com.brunostaine.academia.controllers;
 import br.com.brunostaine.academia.entities.DTOs.PhysicalAssessmentRequestDTO;
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.services.impl.PhysicalAssessmentServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class PhysicalAssessmentController {
     private final PhysicalAssessmentServiceImpl physicalAssessmentService;
 
     @PostMapping
-    public PhysicalAssessment create(@RequestBody PhysicalAssessmentRequestDTO physicalAssessment) {
+    public PhysicalAssessment create(@RequestBody @Valid PhysicalAssessmentRequestDTO physicalAssessment) {
         return physicalAssessmentService.create(physicalAssessment);
     }
 
