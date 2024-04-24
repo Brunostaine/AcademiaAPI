@@ -37,8 +37,7 @@ Caso você utilize outro sistema operacional, a configuração inicial do projet
 - [x] Criação das entidades
 - [x] Criação da logica de sistemas
 - [x] Validações
-- [ ] Exceptions
-- [ ] Testes unitários
+- [x] Exceptions
 - [ ] Documentação Swagger
 
 ## :globe_with_meridians: Status do projeto
