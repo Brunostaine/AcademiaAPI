@@ -1,9 +1,10 @@
-package br.com.brunostaine.academia.entities.DTOs;
+package br.com.brunostaine.academia.controllers.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class PhysicalAssessmentRequestDTO {
     private Long studentId;
     @Column(name = "current_weight")

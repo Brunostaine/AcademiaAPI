@@ -1,6 +1,7 @@
 package br.com.brunostaine.academia.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,9 +17,10 @@ import java.time.LocalDateTime;
 public class Registration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long registration;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "student_id")
     private Student student;
 

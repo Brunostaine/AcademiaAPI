@@ -4,37 +4,34 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
+@Getter @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "students")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
-    @Column(unique = true)
+    @Column(name = "cpf", unique = true, nullable = false, length = 11)
     private String cpf;
+    @Column(name = "city", nullable = false, length = 50)
     private String city;
+    @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
-
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
     private List<PhysicalAssessment> assessments = new ArrayList<>();
-
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
     private Registration registration;
-
 }

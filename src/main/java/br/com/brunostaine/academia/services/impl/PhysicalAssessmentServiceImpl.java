@@ -1,7 +1,7 @@
 package br.com.brunostaine.academia.services.impl;
 
 
-import br.com.brunostaine.academia.entities.DTOs.PhysicalAssessmentRequestDTO;
+import br.com.brunostaine.academia.controllers.dtos.PhysicalAssessmentRequestDTO;
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.entities.Student;
 import br.com.brunostaine.academia.exceptions.EntityNotFoundException;
@@ -9,7 +9,6 @@ import br.com.brunostaine.academia.repositories.PhysicalAssessmentRepository;
 import br.com.brunostaine.academia.repositories.StudentRepository;
 import br.com.brunostaine.academia.services.IPhysicalAssessment;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,29 +21,20 @@ public class PhysicalAssessmentServiceImpl implements IPhysicalAssessment {
     private final StudentRepository studentRepository;
 
     @Override
-    public PhysicalAssessment create(PhysicalAssessmentRequestDTO assessment) {
-        try{
+    public PhysicalAssessment create(PhysicalAssessment assessment) {
+            Student student = studentRepository.findById(assessment.getId()).orElseThrow();
             PhysicalAssessment newAssessment = new PhysicalAssessment();
-            Student student = studentRepository.findById(assessment.getStudentId()).get();
 
             newAssessment.setStudent(student);
             newAssessment.setWeight(assessment.getWeight());
             newAssessment.setHeight(assessment.getHeight());
             return physicalAssessmentRepository.save(newAssessment);
-        }
-        catch (RuntimeException ex){
-            throw new EntityNotFoundException("Not found! " + ex);
-        }
     }
 
 
     @Override
-    public Optional<PhysicalAssessment> getById(Long id) {
-        try {
-            return physicalAssessmentRepository.findById(id);
-        } catch (EntityNotFoundException ex) {
-            throw new EntityNotFoundException("physicalAssessment not found! " + id);
-        }
+    public PhysicalAssessment getById(Long id) {
+        return physicalAssessmentRepository.findById(id).orElseThrow();
     }
 
     @Override

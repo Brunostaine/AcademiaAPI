@@ -1,5 +1,8 @@
 package br.com.brunostaine.academia.controllers;
 
+import br.com.brunostaine.academia.controllers.mapper.StudentMapper;
+import br.com.brunostaine.academia.controllers.dtos.StudentRequestDTO;
+import br.com.brunostaine.academia.controllers.dtos.StudentResponseDTO;
 import br.com.brunostaine.academia.entities.PhysicalAssessment;
 import br.com.brunostaine.academia.entities.Student;
 import br.com.brunostaine.academia.services.impl.StudentServiceImpl;
@@ -16,10 +19,11 @@ import java.util.List;
 @RequestMapping("api/v1/students")
 public class StudentController {
     private final StudentServiceImpl studentService;
+
     @PostMapping
-    public ResponseEntity<Student> create(@RequestBody @Valid Student student) {
-        Student newStudent = studentService.create(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newStudent);
+    public ResponseEntity<StudentResponseDTO> create(@RequestBody @Valid StudentRequestDTO studentDTO) {
+        Student student = studentService.create(StudentMapper.toStudent(studentDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(StudentMapper.toDto(student));
     }
 
     @GetMapping
@@ -32,8 +36,8 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public Student update(@PathVariable Long id, @RequestBody @Valid Student student){
-        return studentService.update(id, student);
+    public Student update(@PathVariable Long id, @RequestBody @Valid StudentRequestDTO studentDTO){
+        return studentService.update(id, studentDTO);
     }
     @GetMapping("/assessments/{id}")
     public List<PhysicalAssessment> getAllPhysicalAssessment(@PathVariable Long id){

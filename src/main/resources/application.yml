@@ -1,7 +1,10 @@
 server.port: 8080
 spring:
+  web:
+    locale-resolver: fixed
+    locale: pt_BR
   datasource:
-    url: jdbc:postgresql://localhost:5432/academia?useTimezone=true&serverTimezone=UTC&useLegacyDate
+    url: jdbc:postgresql://localhost:5432/academia?useTimezone=true&serverTimezone=America/Sao_Paulo
     username: root
     password: root
   jpa:
