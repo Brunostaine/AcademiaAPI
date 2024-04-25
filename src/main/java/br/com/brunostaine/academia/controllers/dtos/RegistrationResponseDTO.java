@@ -11,5 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RegistrationResponseDTO {
     private Long registration;
+
     private Student student;
 }

@@ -1,5 +1,6 @@
 package br.com.brunostaine.academia.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -20,8 +21,8 @@ public class Registration {
     private Long registration;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "student_id")
+    @JsonBackReference
     private Student student;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

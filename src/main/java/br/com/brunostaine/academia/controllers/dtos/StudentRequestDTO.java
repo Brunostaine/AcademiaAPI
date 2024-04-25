@@ -34,6 +34,5 @@ public class StudentRequestDTO {
     private LocalDate birthDate;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<PhysicalAssessment> assessments = new ArrayList<>();
-    @JsonIgnore
     private Registration registration;
 }

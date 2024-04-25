@@ -1,6 +1,8 @@
 package br.com.brunostaine.academia.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +21,7 @@ public class PhysicalAssessment {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "student_id")
+    @JsonBackReference
     private Student student;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime evaluationDate = LocalDateTime.now();
