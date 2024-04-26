@@ -42,7 +42,7 @@ Caso você utilize outro sistema operacional, a configuração inicial do projet
 
 ## :globe_with_meridians: Status do projeto
 
-![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=EM_DESENVOLVIMENTO&color=blue&style=for-the-badge)
+![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=green&style=for-the-badge)
 
 ## :open_file_folder: Imagens
 ![img-swagger.png](img-swagger.png)
