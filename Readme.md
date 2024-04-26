@@ -45,7 +45,7 @@ Caso você utilize outro sistema operacional, a configuração inicial do projet
 ![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=EM_DESENVOLVIMENTO&color=blue&style=for-the-badge)
 
 ## :open_file_folder: Imagens
-![Imagem.swagger](D:\workspace\dio\academia\img-swagger.png)
+![img-swagger.png](img-swagger.png)
 
 ## Autor
 
