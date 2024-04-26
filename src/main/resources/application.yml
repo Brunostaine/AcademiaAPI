@@ -1,4 +1,10 @@
 server.port: 8080
+springdoc:
+  swagger-ui:
+    path: /docs-academia.html
+  api-docs:
+    path: /docs-academia
+  packagesToScan: br.com.brunostaine.academia.controllers
 spring:
   web:
     locale-resolver: fixed
